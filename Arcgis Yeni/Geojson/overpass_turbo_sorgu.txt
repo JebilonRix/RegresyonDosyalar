@@ -1,0 +1,21 @@
+//yıl
+[out:json][timeout:5000][date:"2014-01-01T00:00:00Z"];
+
+//bölge
+{{geocodeArea:turkey}->.searchArea;
+(
+//Otoban
+way["highway"="motorway"](area.searchArea);
+
+//Bölünmüş yol
+way["highway"="trunk"](area.searchArea);
+
+//Gidiş - geliş yol
+way["highway"="primary"](area.searchArea);
+);
+
+//Çıktı kısmı
+out meta;
+out body;
+>;
+out skel qt;
